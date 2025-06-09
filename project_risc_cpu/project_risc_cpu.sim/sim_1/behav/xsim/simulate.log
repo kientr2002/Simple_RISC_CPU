@@ -1,0 +1,104 @@
+Time resolution is 1 ps
+time:0, input_number:00000, reset:0, enable_loading:0, enable_counting:0, output_counter:xxxxx
+reg_counter: 00000
+time:5000, input_number:00000, reset:0, enable_loading:0, enable_counting:0, output_counter:00000
+time:10000, input_number:00000, reset:0, enable_loading:0, enable_counting:1, output_counter:00000
+reg_counter: 00001
+time:20000, input_number:00001, reset:0, enable_loading:0, enable_counting:0, output_counter:00000
+time:25000, input_number:00001, reset:0, enable_loading:0, enable_counting:0, output_counter:00001
+time:30000, input_number:00001, reset:0, enable_loading:0, enable_counting:1, output_counter:00001
+reg_counter: 00010
+time:40000, input_number:00001, reset:0, enable_loading:0, enable_counting:0, output_counter:00001
+time:45000, input_number:00001, reset:0, enable_loading:0, enable_counting:0, output_counter:00010
+time:50000, input_number:00001, reset:0, enable_loading:1, enable_counting:1, output_counter:00010
+reg_counter: 00001
+time:60000, input_number:00001, reset:0, enable_loading:0, enable_counting:0, output_counter:00010
+time:65000, input_number:00001, reset:0, enable_loading:0, enable_counting:0, output_counter:00001
+time:70000, input_number:00001, reset:0, enable_loading:0, enable_counting:1, output_counter:00001
+reg_counter: 00010
+time:80000, input_number:00001, reset:0, enable_loading:0, enable_counting:0, output_counter:00001
+time:85000, input_number:00001, reset:0, enable_loading:0, enable_counting:0, output_counter:00010
+time:90000, input_number:00001, reset:0, enable_loading:0, enable_counting:1, output_counter:00010
+reg_counter: 00011
+time:100000, input_number:00001, reset:0, enable_loading:0, enable_counting:0, output_counter:00010
+time:105000, input_number:00001, reset:0, enable_loading:0, enable_counting:0, output_counter:00011
+time:110000, input_number:00001, reset:1, enable_loading:0, enable_counting:1, output_counter:00011
+reg_counter: 00000
+time:120000, input_number:00001, reset:1, enable_loading:0, enable_counting:0, output_counter:00011
+time:125000, input_number:00001, reset:1, enable_loading:0, enable_counting:0, output_counter:00000
+time:130000, input_number:00001, reset:0, enable_loading:0, enable_counting:1, output_counter:00000
+reg_counter: 00001
+time:140000, input_number:00001, reset:0, enable_loading:0, enable_counting:0, output_counter:00000
+time:145000, input_number:00001, reset:0, enable_loading:0, enable_counting:0, output_counter:00001
+time:150000, input_number:00001, reset:0, enable_loading:0, enable_counting:1, output_counter:00001
+reg_counter: 00010
+time:160000, input_number:00001, reset:0, enable_loading:0, enable_counting:0, output_counter:00001
+time:165000, input_number:00001, reset:0, enable_loading:0, enable_counting:0, output_counter:00010
+time:170000, input_number:00001, reset:0, enable_loading:0, enable_counting:1, output_counter:00010
+reg_counter: 00011
+time:180000, input_number:00001, reset:0, enable_loading:0, enable_counting:0, output_counter:00010
+time:185000, input_number:00001, reset:0, enable_loading:0, enable_counting:0, output_counter:00011
+time:190000, input_number:00001, reset:0, enable_loading:0, enable_counting:1, output_counter:00011
+reg_counter: 00100
+time:200000, input_number:00001, reset:0, enable_loading:0, enable_counting:0, output_counter:00011
+time:205000, input_number:00001, reset:0, enable_loading:0, enable_counting:0, output_counter:00100
+time:210000, input_number:00001, reset:0, enable_loading:0, enable_counting:1, output_counter:00100
+reg_counter: 00101
+time:220000, input_number:00001, reset:0, enable_loading:0, enable_counting:0, output_counter:00100
+time:225000, input_number:00001, reset:0, enable_loading:0, enable_counting:0, output_counter:00101
+time:230000, input_number:00001, reset:0, enable_loading:0, enable_counting:1, output_counter:00101
+reg_counter: 00110
+time:240000, input_number:00001, reset:0, enable_loading:0, enable_counting:0, output_counter:00101
+time:245000, input_number:00001, reset:0, enable_loading:0, enable_counting:0, output_counter:00110
+time:250000, input_number:00001, reset:0, enable_loading:0, enable_counting:1, output_counter:00110
+reg_counter: 00111
+time:260000, input_number:00001, reset:0, enable_loading:0, enable_counting:0, output_counter:00110
+time:265000, input_number:00001, reset:0, enable_loading:0, enable_counting:0, output_counter:00111
+time:270000, input_number:00001, reset:0, enable_loading:0, enable_counting:1, output_counter:00111
+reg_counter: 01000
+time:280000, input_number:00001, reset:0, enable_loading:0, enable_counting:0, output_counter:00111
+time:285000, input_number:00001, reset:0, enable_loading:0, enable_counting:0, output_counter:01000
+time:290000, input_number:00001, reset:0, enable_loading:0, enable_counting:1, output_counter:01000
+reg_counter: 01001
+time:300000, input_number:00001, reset:0, enable_loading:0, enable_counting:0, output_counter:01000
+time:305000, input_number:00001, reset:0, enable_loading:0, enable_counting:0, output_counter:01001
+time:310000, input_number:00001, reset:0, enable_loading:0, enable_counting:1, output_counter:01001
+reg_counter: 01010
+time:320000, input_number:00001, reset:0, enable_loading:0, enable_counting:0, output_counter:01001
+time:325000, input_number:00001, reset:0, enable_loading:0, enable_counting:0, output_counter:01010
+time:330000, input_number:00001, reset:0, enable_loading:0, enable_counting:1, output_counter:01010
+reg_counter: 01011
+time:340000, input_number:00001, reset:0, enable_loading:0, enable_counting:0, output_counter:01010
+time:345000, input_number:00001, reset:0, enable_loading:0, enable_counting:0, output_counter:01011
+time:350000, input_number:00001, reset:0, enable_loading:0, enable_counting:1, output_counter:01011
+reg_counter: 01100
+time:360000, input_number:00001, reset:0, enable_loading:0, enable_counting:0, output_counter:01011
+time:365000, input_number:00001, reset:0, enable_loading:0, enable_counting:0, output_counter:01100
+time:370000, input_number:00001, reset:0, enable_loading:0, enable_counting:1, output_counter:01100
+reg_counter: 01101
+time:380000, input_number:00001, reset:0, enable_loading:0, enable_counting:0, output_counter:01100
+time:385000, input_number:00001, reset:0, enable_loading:0, enable_counting:0, output_counter:01101
+time:390000, input_number:00001, reset:0, enable_loading:0, enable_counting:1, output_counter:01101
+reg_counter: 01110
+time:400000, input_number:00001, reset:0, enable_loading:0, enable_counting:0, output_counter:01101
+time:405000, input_number:00001, reset:0, enable_loading:0, enable_counting:0, output_counter:01110
+time:410000, input_number:00001, reset:0, enable_loading:0, enable_counting:1, output_counter:01110
+reg_counter: 01111
+time:420000, input_number:00001, reset:0, enable_loading:0, enable_counting:0, output_counter:01110
+time:425000, input_number:00001, reset:0, enable_loading:0, enable_counting:0, output_counter:01111
+time:430000, input_number:00001, reset:0, enable_loading:0, enable_counting:1, output_counter:01111
+reg_counter: 10000
+time:440000, input_number:00001, reset:0, enable_loading:0, enable_counting:0, output_counter:01111
+time:445000, input_number:00001, reset:0, enable_loading:0, enable_counting:0, output_counter:10000
+time:450000, input_number:00001, reset:0, enable_loading:0, enable_counting:1, output_counter:10000
+reg_counter: 10001
+time:460000, input_number:00001, reset:0, enable_loading:0, enable_counting:0, output_counter:10000
+time:465000, input_number:00001, reset:0, enable_loading:0, enable_counting:0, output_counter:10001
+time:470000, input_number:00001, reset:0, enable_loading:0, enable_counting:1, output_counter:10001
+reg_counter: 10010
+time:480000, input_number:00001, reset:0, enable_loading:0, enable_counting:0, output_counter:10001
+time:485000, input_number:00001, reset:0, enable_loading:0, enable_counting:0, output_counter:10010
+time:490000, input_number:00001, reset:0, enable_loading:0, enable_counting:1, output_counter:10010
+reg_counter: 10011
+time:500000, input_number:00001, reset:0, enable_loading:0, enable_counting:0, output_counter:10010
+time:505000, input_number:00001, reset:0, enable_loading:0, enable_counting:0, output_counter:10011
