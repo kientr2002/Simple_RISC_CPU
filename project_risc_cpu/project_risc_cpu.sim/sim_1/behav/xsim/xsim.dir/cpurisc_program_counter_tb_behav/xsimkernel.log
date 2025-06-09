@@ -1,4 +1,4 @@
-Running: xsim.dir/cpurisc_program_counter_tb_behav/xsimk -simmode gui -wdb cpurisc_program_counter_tb_behav.wdb -simrunnum 0 -socket 42311
+Running: xsim.dir/cpurisc_program_counter_tb_behav/xsimk -simmode gui -wdb cpurisc_program_counter_tb_behav.wdb -simrunnum 0 -socket 43387
 Design successfully loaded
 Design Loading Memory Usage: 29048 KB (Peak: 29632 KB)
-Design Loading CPU Usage: 10 ms
+Design Loading CPU Usage: 20 ms

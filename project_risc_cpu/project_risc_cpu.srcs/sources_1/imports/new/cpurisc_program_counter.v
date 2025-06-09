@@ -30,19 +30,32 @@ module cpurisc_program_counter(
     );
     reg [4:0] reg_counter = 5'b00000;
 
-    always @(posedge clk) begin
-        $monitor("reg_counter: %b", reg_counter);
-        if (reset == 1) 
-            reg_counter <= 5'b00000;  // reset logic
-        else if (enable_loading == 1) 
-            reg_counter <= input_number; // load input value
-        else if (enable_counting == 1) 
-            reg_counter <= reg_counter + 1; // count logic
+    // reset block
+    always @(*) begin
+        if(reset == 1)
+            reg_counter <= 5'b00000;
+           
     end
+    
+    // input loading Counting number block 
+    always @(*) begin
+        if(enable_loading == 1 && reset == 0)
+            reg_counter <= input_number;            
 
-    // Output assignment
-    always @(posedge clk) begin
-        output_counter <= reg_counter;
+    end
+    
+    // normal operation 
+    always@(*) begin
+        if(enable_counting == 1 && enable_loading == 0 && reset == 0)
+            reg_counter <= output_counter + 1;
+    end
+    
+    // output_counter processing
+    always @(posedge clk) begin 
+            output_counter <= reg_counter;        
     end
     
 endmodule
+
+
+
