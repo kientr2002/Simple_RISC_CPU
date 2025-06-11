@@ -21,38 +21,38 @@
 
 
 module cpurisc_program_counter(
-    input wire clk, // positive edge 
-    input wire [4:0] input_number,
-    input wire reset, // positive level
-    input wire enable_loading, // positive level
-    input wire enable_counting, // positive level
-    output reg [4:0] output_counter
+    input wire SKZ, 
+    input wire JUMP,
+    input wire is_zero,
+    input wire clk,
+    input wire [4:0] PC_jump_addr,
+    input wire reset,
+    input wire pc_enable,
+    output reg [4:0] PC_out
     );
     reg [4:0] reg_counter = 5'b00000;
 
-    // reset block
+    
     always @(*) begin
-        if(reset == 1)
-            reg_counter <= 5'b00000;
-           
+        if(pc_enable) begin
+            if(SKZ == 1 && is_zero == 1)
+                reg_counter <= PC_out + 5'b00010; // skipping the next instruction 
+             else if(JUMP == 1)
+                reg_counter <= PC_jump_addr; // jumping to the specific instruction
+             else
+                reg_counter <= PC_out + 5'b00001; // normal mode
+                
+        end
+        else 
+            reg_counter <= PC_out;
     end
     
-    // input loading Counting number block 
-    always @(*) begin
-        if(enable_loading == 1 && reset == 0)
-            reg_counter <= input_number;            
-
-    end
     
-    // normal operation 
-    always@(*) begin
-        if(enable_counting == 1 && enable_loading == 0 && reset == 0)
-            reg_counter <= output_counter + 1;
-    end
-    
-    // output_counter processing
     always @(posedge clk) begin 
-            output_counter <= reg_counter;        
+    if(reset)
+        PC_out <= 5'b00000;
+    else if(pc_enable)
+        PC_out <= reg_counter;
     end
     
 endmodule

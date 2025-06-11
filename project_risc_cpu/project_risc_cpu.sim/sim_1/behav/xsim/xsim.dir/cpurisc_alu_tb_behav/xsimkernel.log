@@ -2,3 +2,6 @@ Running: xsim.dir/cpurisc_alu_tb_behav/xsimk -simmode gui -wdb cpurisc_alu_tb_be
 Design successfully loaded
 Design Loading Memory Usage: 29048 KB (Peak: 29632 KB)
 Design Loading CPU Usage: 10 ms
+Simulation completed
+Simulation Memory Usage: 111044 KB (Peak: 168316 KB)
+Simulation CPU Usage: 20 ms
