@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenRun Id="synth_1" LaunchPart="xck26-sfvc784-2LV-c" LaunchTime="1749635410">
+  <File Type="VDS-TIMINGSUMMARY" Name="cpurisc_instruction_memory_timing_summary_synth.rpt"/>
+  <File Type="RDS-DCP" Name="cpurisc_instruction_memory.dcp"/>
+  <File Type="RDS-UTIL-PB" Name="cpurisc_instruction_memory_utilization_synth.pb"/>
+  <File Type="RDS-UTIL" Name="cpurisc_instruction_memory_utilization_synth.rpt"/>
+  <File Type="RDS-PROPCONSTRS" Name="cpurisc_instruction_memory_drc_synth.rpt"/>
+  <File Type="RDS-RDS" Name="cpurisc_instruction_memory.vds"/>
+  <File Type="REPORTS-TCL" Name="cpurisc_instruction_memory_reports.tcl"/>
+  <File Type="VDS-TIMING-PB" Name="cpurisc_instruction_memory_timing_summary_synth.pb"/>
+  <File Type="PA-TCL" Name="cpurisc_instruction_memory.tcl"/>
+  <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
+    <Filter Type="Srcs"/>
+    <File Path="$PSRCDIR/sources_1/new/cpurisc_instruction_memory.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/new/cpurisc_program_counter.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../workWithSon/project_handson_cpuRISC/project_handson_cpuRISC.srcs/sources_1/new/cpurisc_program_counter.v"/>
+        <Attr Name="ImportTime" Val="1749466857"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/new/cpurisc_program_counter_tb.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../workWithSon/project_handson_cpuRISC/project_handson_cpuRISC.srcs/sources_1/new/cpurisc_program_counter_tb.v"/>
+        <Attr Name="ImportTime" Val="1749466971"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/new/cpurisc_alu.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../workWithSon/project_handson_cpuRISC/project_handson_cpuRISC.srcs/sources_1/new/cpurisc_alu.v"/>
+        <Attr Name="ImportTime" Val="1748516571"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/new/cpurisc_alu_tb.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../workWithSon/project_handson_cpuRISC/project_handson_cpuRISC.srcs/sources_1/new/cpurisc_alu_tb.v"/>
+        <Attr Name="ImportTime" Val="1748516680"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/new/cpurisc_dataMemory.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../workWithSon/project_handson_cpuRISC/project_handson_cpuRISC.srcs/sources_1/new/cpurisc_dataMemory.v"/>
+        <Attr Name="ImportTime" Val="1748517845"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/cpurisc_address_mux.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/xsim/instruction_file.mem">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../workWithSon/L05_Group_2_BTL_TKVM-PC_AND_ACC_AND_CLOCK_DIVIDER/L05_Group_2_BTL_TKVM.sim/sim_1/synth/timing/xsim/instruction_file.mem"/>
+        <Attr Name="ImportTime" Val="1744382657"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="DesignMode" Val="RTL"/>
+      <Option Name="TopModule" Val="cpurisc_instruction_memory"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
+    <Filter Type="Constrs"/>
+    <Config>
+      <Option Name="ConstrsType" Val="XDC"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="utils" Type="Utils" RelSrcDir="$PSRCDIR/utils_1">
+    <Filter Type="Utils"/>
+    <Config>
+      <Option Name="TopAutoSet" Val="TRUE"/>
+    </Config>
+  </FileSet>
+  <Strategy Version="1" Minor="2">
+    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2022"/>
+    <Step Id="synth_design"/>
+  </Strategy>
+</GenRun>

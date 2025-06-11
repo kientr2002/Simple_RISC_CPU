@@ -1,0 +1,13 @@
+#-----------------------------------------------------------
+# Vivado v2022.1 (64-bit)
+# SW Build 3526262 on Mon Apr 18 15:47:01 MDT 2022
+# IP Build 3524634 on Mon Apr 18 20:55:01 MDT 2022
+# Start of session at: Wed Jun 11 16:50:12 2025
+# Process ID: 354249
+# Current directory: /home/kien/Documents/Workspace/Simple_RISC_CPU/project_risc_cpu/project_risc_cpu.runs/synth_1
+# Command line: vivado -log cpurisc_instruction_memory.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source cpurisc_instruction_memory.tcl
+# Log file: /home/kien/Documents/Workspace/Simple_RISC_CPU/project_risc_cpu/project_risc_cpu.runs/synth_1/cpurisc_instruction_memory.vds
+# Journal file: /home/kien/Documents/Workspace/Simple_RISC_CPU/project_risc_cpu/project_risc_cpu.runs/synth_1/vivado.jou
+# Running On: kien-GF63-Thin-10SC, OS: Linux, CPU Frequency: 4598.824 MHz, CPU Physical cores: 6, Host memory: 16580 MB
+#-----------------------------------------------------------
+source cpurisc_instruction_memory.tcl -notrace

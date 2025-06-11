@@ -1,0 +1,199 @@
+#-----------------------------------------------------------
+# Vivado v2022.1 (64-bit)
+# SW Build 3526262 on Mon Apr 18 15:47:01 MDT 2022
+# IP Build 3524634 on Mon Apr 18 20:55:01 MDT 2022
+# Start of session at: Wed Jun 11 16:50:12 2025
+# Process ID: 354249
+# Current directory: /home/kien/Documents/Workspace/Simple_RISC_CPU/project_risc_cpu/project_risc_cpu.runs/synth_1
+# Command line: vivado -log cpurisc_instruction_memory.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source cpurisc_instruction_memory.tcl
+# Log file: /home/kien/Documents/Workspace/Simple_RISC_CPU/project_risc_cpu/project_risc_cpu.runs/synth_1/cpurisc_instruction_memory.vds
+# Journal file: /home/kien/Documents/Workspace/Simple_RISC_CPU/project_risc_cpu/project_risc_cpu.runs/synth_1/vivado.jou
+# Running On: kien-GF63-Thin-10SC, OS: Linux, CPU Frequency: 4598.824 MHz, CPU Physical cores: 6, Host memory: 16580 MB
+#-----------------------------------------------------------
+source cpurisc_instruction_memory.tcl -notrace
+Command: synth_design -top cpurisc_instruction_memory -part xck26-sfvc784-2LV-c
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xck26'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xck26'
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 354349
+---------------------------------------------------------------------------------
+Starting Synthesize : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 2614.164 ; gain = 0.000 ; free physical = 1852 ; free virtual = 12519
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'cpurisc_instruction_memory' [/home/kien/Documents/Workspace/Simple_RISC_CPU/project_risc_cpu/project_risc_cpu.srcs/sources_1/new/cpurisc_instruction_memory.v:23]
+INFO: [Synth 8-3876] $readmem data file 'instruction_file.mem' is read successfully [/home/kien/Documents/Workspace/Simple_RISC_CPU/project_risc_cpu/project_risc_cpu.srcs/sources_1/new/cpurisc_instruction_memory.v:32]
+INFO: [Synth 8-6155] done synthesizing module 'cpurisc_instruction_memory' (0#1) [/home/kien/Documents/Workspace/Simple_RISC_CPU/project_risc_cpu/project_risc_cpu.srcs/sources_1/new/cpurisc_instruction_memory.v:23]
+---------------------------------------------------------------------------------
+Finished Synthesize : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 2614.164 ; gain = 0.000 ; free physical = 2773 ; free virtual = 13451
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 2614.164 ; gain = 0.000 ; free physical = 2808 ; free virtual = 13486
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xck26-sfvc784-2LV-c
+INFO: [Synth 8-6742] Reading net delay rules and data
+INFO: [Device 21-403] Loading part xck26-sfvc784-2LV-c
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 2622.168 ; gain = 8.004 ; free physical = 2808 ; free virtual = 13486
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 2622.168 ; gain = 8.004 ; free physical = 2800 ; free virtual = 13491
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Registers : 
+	                8 Bit    Registers := 1     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+WARNING: [Device 21-9] Clock region file  is not available
+Part Resources:
+DSPs: 1248 (col length:96)
+BRAMs: 288 (col length: RAMB18 96 RAMB36 48)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 2850.168 ; gain = 236.004 ; free physical = 1918 ; free virtual = 12738
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+ROM: Preliminary Mapping Report
++---------------------------+-----------------+---------------+----------------+
+|Module Name                | RTL Object      | Depth x Width | Implemented As | 
++---------------------------+-----------------+---------------+----------------+
+|cpurisc_instruction_memory | instruction_mem | 32x8          | LUT            | 
+|cpurisc_instruction_memory | p_0_out         | 32x8          | LUT            | 
++---------------------------+-----------------+---------------+----------------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 2850.168 ; gain = 236.004 ; free physical = 1918 ; free virtual = 12738
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 2850.168 ; gain = 236.004 ; free physical = 1918 ; free virtual = 12738
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 2850.168 ; gain = 236.004 ; free physical = 1949 ; free virtual = 12769
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 2850.168 ; gain = 236.004 ; free physical = 1949 ; free virtual = 12769
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 2850.168 ; gain = 236.004 ; free physical = 1949 ; free virtual = 12769
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 2850.168 ; gain = 236.004 ; free physical = 1949 ; free virtual = 12769
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 2850.168 ; gain = 236.004 ; free physical = 1949 ; free virtual = 12769
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 2850.168 ; gain = 236.004 ; free physical = 1949 ; free virtual = 12769
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-----+------+
+|      |Cell |Count |
++------+-----+------+
+|1     |LUT5 |     8|
+|2     |FDRE |     8|
+|3     |IBUF |     7|
+|4     |OBUF |     8|
++------+-----+------+
+
+Report Instance Areas: 
++------+---------+-------+------+
+|      |Instance |Module |Cells |
++------+---------+-------+------+
+|1     |top      |       |    31|
++------+---------+-------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 2850.168 ; gain = 236.004 ; free physical = 1949 ; free virtual = 12769
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 2 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 2850.168 ; gain = 236.004 ; free physical = 1950 ; free virtual = 12771
+Synthesis Optimization Complete : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 2850.176 ; gain = 236.004 ; free physical = 1950 ; free virtual = 12771
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 2850.176 ; gain = 0.000 ; free physical = 1963 ; free virtual = 12784
+INFO: [Netlist 29-17] Analyzing 7 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2906.195 ; gain = 0.000 ; free physical = 1930 ; free virtual = 12761
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 7 instances were transformed.
+  IBUF => IBUF (IBUFCTRL, INBUF): 7 instances
+
+Synth Design complete, checksum: 7309c8a5
+INFO: [Common 17-83] Releasing license: Synthesis
+16 Infos, 2 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:17 ; elapsed = 00:00:14 . Memory (MB): peak = 2906.195 ; gain = 292.031 ; free physical = 2002 ; free virtual = 12833
+INFO: [Common 17-1381] The checkpoint '/home/kien/Documents/Workspace/Simple_RISC_CPU/project_risc_cpu/project_risc_cpu.runs/synth_1/cpurisc_instruction_memory.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file cpurisc_instruction_memory_utilization_synth.rpt -pb cpurisc_instruction_memory_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Wed Jun 11 16:50:32 2025...
