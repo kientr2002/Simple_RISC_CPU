@@ -1,0 +1,12 @@
+Time resolution is 1 ps
+Time=30000  Normal:   PC_out = 1
+Time=40000  Normal:   PC_out = 2
+Time=50000  SKZ skip: PC_out = 4
+Time=60000  Jump:     PC_out = 10
+Time=70000  Disabled: PC_out = 10
+Time=80000  Disabled: PC_out = 10
+Time=90000  Disabled: PC_out = 11
+Time=100000  Disabled: PC_out = 12
+Time=140000  Disabled: PC_out = 1
+Time=150000  Disabled: PC_out = 2
+$finish called at time : 150 ns : File "/home/kien/Documents/Workspace/Simple_RISC_CPU/project_risc_cpu/project_risc_cpu.srcs/sources_1/imports/new/cpurisc_program_counter_tb.v" Line 112

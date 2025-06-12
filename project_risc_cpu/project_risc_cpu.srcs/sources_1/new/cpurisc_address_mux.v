@@ -30,7 +30,7 @@ module cpurisc_address_mux(
     );
     
     always@(posedge clk) begin
-        if(mux_select) 
+        if(!mux_select) 
         // if mux_select is 0, instruction memory will receive the address of output counter for decoding in the next step
         // if mux_select is 1, data memory will get operand address for caculating.
             operand_address_out <= operand_address_in;

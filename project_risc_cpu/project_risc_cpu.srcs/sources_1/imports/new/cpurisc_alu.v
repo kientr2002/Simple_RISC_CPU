@@ -41,6 +41,7 @@ module cpurisc_alu(
                 3'b010: alu_nextResult <= accumulator_out + memory_data;// ADD 
                 3'b011: alu_nextResult <= accumulator_out & memory_data;// AND 
                 3'b100: alu_nextResult <= accumulator_out ^ memory_data;// XOR
+                3'b101: alu_nextResult <= memory_data; // Read memory data and send it to accumulator
                 default: alu_nextResult <= alu_result;
             endcase
         end
