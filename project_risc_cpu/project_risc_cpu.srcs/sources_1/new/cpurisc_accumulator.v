@@ -23,34 +23,20 @@
 module cpurisc_accumulator(
     input clk,
     input reset,
-    input LDA,
-    input [7:0] data_in1,
-    input [7:0] data_in2,
+    input [7:0] data_in,
     input acc_enable,
-    input load_register,
     output [7:0] accumulator_out
     );
     
     reg [7:0] reg_accumulator_out;
     
-    always @(*) begin
-        if(load_register) begin
-            reg_accumulator_out <= data_in1;
-        end
-        else if(LDA) begin
-            reg_accumulator_out <= data_in2;
-        end
-        else begin
-            reg_accumulator_out <= accumulator_out;
-        end
-    end
     
-    always @(posedge clk) begin
+    always @(posedge clk or posedge reset) begin
         if(reset) begin
             accumulator_out <= 8'b00000000;
         end
         else if(acc_enable) begin
-            accumulator_out <= reg_accumulator_out;
+            accumulator_out <= data_in;
         end
     end
 endmodule

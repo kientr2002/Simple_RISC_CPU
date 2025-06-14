@@ -21,34 +21,50 @@
 
 
 module cpurisc_controller(
-    input reset,
-    input clk,
-    input [2:0] opcode,
-    output pc_enable,
-    output mux_select,
-    output load_ir,
-    output SKZ,
-    output wr_en,
-    output LDA,
-    output load_register,
-    output JUMP,
-    output imem_enable,
-    output dmem_enable,
-    output alu_enable,
-    output acc_enable
+    input wire reset,
+    input wire clk,
+    input wire [2:0] opcode,
+    output reg pc_enable,
+    output reg mux_select,
+    output reg load_ir,
+    output reg SKZ,
+    output reg wr_en,
+    output reg JUMP,
+    output reg imem_enable,
+    output reg alu_enable,
+    output reg acc_enable
     );
     
     reg [3:0] state;
     
-    localparam  INST_ADDR   = 4'b0000, // mux selects address from PC and send to instruction memory for reading, jump to INST_FETCH
-                INST_FETCH  = 4'b0001, // instruction register receive instruction and decode it to opcode and operand address, jump to INST_LOAD
-                INST_LOAD   = 4'b0010, // wait for the instruction register load value and increasing PC, jump to IDLE
-                IDLE        = 4'b0011, // wait for the instruction register
-                OP_ADDR     = 4'b0100,
-                OP_FETCH    = 4'b0101,
-                ALU_OP      = 4'b0110,
-                STORE       = 4'b0111,
-                HALT_STATE  = 4'b1000;
+    localparam  SELECT_INST_ADDR   = 4'b0000, // mux selects address from PC and send to instruction memory for reading, 
+                                              // jump to INST_FETCH
+                                              
+                INST_FETCH  = 4'b0001, // instruction memory receive instruction address and send instruction to instruction register, 
+                                       // jump to INST_LOAD
+                                       
+                INST_DECODE   = 4'b0010, // instruction register decode instruction (opcode and operand address), 
+                                       // send them to controller and address mux (in not case new instruction address processing),
+                                       // jump to OPCODE_PROCESSING
+                                       
+                OPCODE_PROCESSING        = 4'b0011, // controller reads the opcode, the next action will be happened in the next state,
+                                                    // address mux send the operand address to data memory,
+                                                    // jump to OP_ADDR
+                                       
+                OPCODE_OPERATION     = 4'b0100, // based on opcode, ALU will be operation 
+                                                // if opcode is HALT_STATE, also be happened on this state
+                                                // jump to OPCODE_ACCUMULATOR   
+                
+                OPCODE_ACCUMULATOR    = 4'b0101, // accumulator will be active on this state, based on opcode
+                                                 // jump to OPCODE_MEMORYANDPC
+                
+                OPCODE_MEMORYANDPC      = 4'b0110, // memory and PC (relevant to JUMP or SKZ) will be active on this state, based on opcode
+                                                   // jump to STORE
+                
+                STORE       = 4'b0111, // store the operand address to data memory
+                                       // jump to SELECT_INST_ADDR
+                                        
+                HALT_STATE  = 4'b1000; // nothing happen, back to SELECT_INST_ADDR if having the reset signal
     
     always @(posedge clk or posedge reset) begin
         if(reset) begin
@@ -57,15 +73,151 @@ module cpurisc_controller(
             load_ir <= 0;
             SKZ <= 0;
             wr_en <= 0;
-            LDA <= 0;
-            load_register <= 0;
             JUMP <= 0;
             imem_enable <= 0;
-            dmem_enable <= 0;
             alu_enable <= 0;
             acc_enable <= 0;
-            state <= INST_ADDR;
+            state <= SELECT_INST_ADDR;
         end
-    
+        else begin
+            case(state)
+                SELECT_INST_ADDR: begin
+                    pc_enable <= 0;
+                    mux_select <= 1;
+                    load_ir <= 0;
+                    SKZ <= 0;
+                    wr_en <= 0;
+                    JUMP <= 0;
+                    imem_enable <= 1;
+                    alu_enable <= 0;
+                    acc_enable <= 0;
+                    state <= INST_FETCH;                   
+                end 
+                INST_FETCH: begin
+                    pc_enable <= 0;
+                    mux_select <= 1;
+                    load_ir <= 1;
+                    SKZ <= 0;
+                    wr_en <= 0;
+                    JUMP <= 0;
+                    imem_enable <= 1;
+                    alu_enable <= 0;
+                    acc_enable <= 0;
+                    state <= INST_DECODE;                   
+                end 
+                INST_DECODE: begin
+                    pc_enable <= 0;
+                    mux_select <= 1;
+                    load_ir <= 1;
+                    SKZ <= 0;
+                    wr_en <= 0;
+                    JUMP <= 0;
+                    imem_enable <= 1;
+                    alu_enable <= 0;
+                    acc_enable <= 0;
+                    state <= OPCODE_PROCESSING;                    
+                end 
+                OPCODE_PROCESSING: begin
+                    pc_enable <= 0;
+                    mux_select <= 0;
+                    load_ir <= 0;
+                    SKZ <= 0;
+                    wr_en <= 0;
+                    JUMP <= 0;
+                    imem_enable <= 0;
+                    alu_enable <= 0;
+                    acc_enable <= 0;
+                    state <= OPCODE_OPERATION;                   
+                end 
+                OPCODE_OPERATION: begin 
+                    if(opcode == 3'b000) begin
+                        pc_enable <= 0;
+                        mux_select <= 0;
+                        load_ir <= 0;
+                        SKZ <= 0;
+                        wr_en <= 0;
+                        JUMP <= 0;
+                        imem_enable <= 0;
+                        alu_enable <= 0;
+                        acc_enable <= 0;
+                        state <= HALT_STATE;
+                    end   
+                    else begin
+                        pc_enable <= 0;
+                        mux_select <= 0;
+                        load_ir <= 0;
+                        SKZ <= (opcode == 3'b001);
+                        wr_en <= 0;
+                        JUMP <= (opcode == 3'b111); 
+                        imem_enable <= 0;
+                        alu_enable <= (opcode == 3'b010 || opcode == 3'b011 || opcode == 3'b100 || opcode == 3'b101);
+                        acc_enable <= 0;
+                        state <= OPCODE_ACCUMULATOR;
+                    end                 
+                end 
+                OPCODE_ACCUMULATOR: begin
+                    pc_enable <= 0;
+                    mux_select <= 0;
+                    load_ir <= 0;
+                    SKZ <= (opcode == 3'b001);
+                    wr_en <= 0;
+                    JUMP <= (opcode == 3'b111); 
+                    imem_enable <= 0;
+                    alu_enable <= (opcode == 3'b010 || opcode == 3'b011 || opcode == 3'b100 || 3'b101);
+                    acc_enable <= (opcode == 3'b010 || opcode == 3'b011 || opcode == 3'b100 || 3'b101);
+                    state <= OPCODE_MEMORYANDPC;                
+                end 
+                OPCODE_MEMORYANDPC: begin
+                    pc_enable <= (opcode == 3'b001 || opcode == 3'b111);
+                    mux_select <= 0;
+                    load_ir <= 0;
+                    SKZ <= (opcode == 3'b001);
+                    wr_en <= (opcode == 3'b110);
+                    JUMP <= (opcode == 3'b111); 
+                    imem_enable <= 0;
+                    alu_enable <= 0;
+                    acc_enable <= (opcode == 3'b010 || opcode == 3'b011 || opcode == 3'b100 || 3'b101);
+                    state <= STORE;                                
+                end 
+                STORE: begin
+                    pc_enable <= (opcode == 3'b010 || opcode == 3'b011 || opcode == 3'b100 || opcode == 3'b101|| opcode == 3'b110);
+                    mux_select <= 1;
+                    load_ir <= 1;
+                    SKZ <= 0;
+                    wr_en <= 0;
+                    JUMP <= 0; 
+                    imem_enable <= 1;
+                    alu_enable <= 0;
+                    acc_enable <= 0;
+                    state <= SELECT_INST_ADDR;                   
+                end 
+                
+                HALT_STATE: begin 
+                    pc_enable <= 0;
+                    mux_select <= 0;
+                    load_ir <= 0;
+                    SKZ <= 0;
+                    wr_en <= 0;
+                    JUMP <= 0;
+                    imem_enable <= 0;
+                    alu_enable <= 0;
+                    acc_enable <= 0;
+                    state <= HALT_STATE;                
+                end
+                
+                default: begin
+                    pc_enable <= 0;
+                    mux_select <= 0;
+                    load_ir <= 0;
+                    SKZ <= 0;
+                    wr_en <= 0;
+                    JUMP <= 0;
+                    imem_enable <= 0;
+                    alu_enable <= 0;
+                    acc_enable <= 0;
+                    state <= SELECT_INST_ADDR;                
+                end
+            endcase
+        end
     end
 endmodule
