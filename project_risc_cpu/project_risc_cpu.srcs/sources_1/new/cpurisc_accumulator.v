@@ -21,11 +21,11 @@
 
 
 module cpurisc_accumulator(
-    input clk,
-    input reset,
-    input [7:0] data_in,
-    input acc_enable,
-    output [7:0] accumulator_out
+    input wire clk,
+    input wire reset,
+    input wire [7:0] ALU_result,
+    input wire acc_enable,
+    output reg [7:0] accumulator_out
     );
     
     reg [7:0] reg_accumulator_out;
@@ -36,7 +36,7 @@ module cpurisc_accumulator(
             accumulator_out <= 8'b00000000;
         end
         else if(acc_enable) begin
-            accumulator_out <= data_in;
+            accumulator_out <= ALU_result;
         end
     end
 endmodule

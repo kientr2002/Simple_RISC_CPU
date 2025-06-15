@@ -32,10 +32,10 @@ module cpurisc_controller(
     output reg JUMP,
     output reg imem_enable,
     output reg alu_enable,
-    output reg acc_enable
+    output reg acc_enable,
+    output reg [3:0] state
     );
     
-    reg [3:0] state;
     
     localparam  SELECT_INST_ADDR   = 4'b0000, // mux selects address from PC and send to instruction memory for reading, 
                                               // jump to INST_FETCH
@@ -44,25 +44,25 @@ module cpurisc_controller(
                                        // jump to INST_LOAD
                                        
                 INST_DECODE   = 4'b0010, // instruction register decode instruction (opcode and operand address), 
-                                       // send them to controller and address mux (in not case new instruction address processing),
+                                       // send opcode to controller and ALU; operand address for address mux,
                                        // jump to OPCODE_PROCESSING
                                        
                 OPCODE_PROCESSING        = 4'b0011, // controller reads the opcode, the next action will be happened in the next state,
-                                                    // address mux send the operand address to data memory,
+                                                    // address mux send the operand address to data memory for pre-caculating and the program counter for jumping if any,
                                                     // jump to OP_ADDR
                                        
                 OPCODE_OPERATION     = 4'b0100, // based on opcode, ALU will be operation 
                                                 // if opcode is HALT_STATE, also be happened on this state
                                                 // jump to OPCODE_ACCUMULATOR   
                 
-                OPCODE_ACCUMULATOR    = 4'b0101, // accumulator will be active on this state, based on opcode
+                OPCODE_ACCUMULATOR    = 4'b0101, // accumulator will be received data from ALU
                                                  // jump to OPCODE_MEMORYANDPC
                 
-                OPCODE_MEMORYANDPC      = 4'b0110, // memory and PC (relevant to JUMP or SKZ) will be active on this state, based on opcode
+                OPCODE_MEMORYANDPC      = 4'b0110, // memory and PC (relevant to JUMP or SKZ) will be active on this state
                                                    // jump to STORE
                 
-                STORE       = 4'b0111, // store the operand address to data memory
-                                       // jump to SELECT_INST_ADDR
+                PC_PROCESSING       = 4'b0111, // Program Counter will caculate the next address and also send data to Data Memory 
+                                               // jump to SELECT_INST_ADDR
                                         
                 HALT_STATE  = 4'b1000; // nothing happen, back to SELECT_INST_ADDR if having the reset signal
     
@@ -177,9 +177,9 @@ module cpurisc_controller(
                     imem_enable <= 0;
                     alu_enable <= 0;
                     acc_enable <= (opcode == 3'b010 || opcode == 3'b011 || opcode == 3'b100 || 3'b101);
-                    state <= STORE;                                
+                    state <= PC_PROCESSING;                                
                 end 
-                STORE: begin
+                PC_PROCESSING: begin
                     pc_enable <= (opcode == 3'b010 || opcode == 3'b011 || opcode == 3'b100 || opcode == 3'b101|| opcode == 3'b110);
                     mux_select <= 1;
                     load_ir <= 1;

@@ -21,12 +21,11 @@
 
 
 module cpurisc_dataMemory(
-    input wire dmem_enable,
     input wire clk,
     input wire wr_en,
     input wire [4:0] addr,
-    input wire [7:0] write_data,
-    output reg [7:0] read_data
+    input wire [7:0] accumulator_out,
+    output reg [7:0] memory_data 
     );
     
     reg [7:0] instruction_mem [31:0];
@@ -37,13 +36,11 @@ module cpurisc_dataMemory(
 
     
     always @(posedge clk) begin
-        if(dmem_enable) begin
-            if(wr_en) begin // write mode
-                instruction_mem[addr] <= write_data;
-            end
-            else begin // read mode
-                read_data <= instruction_mem[addr];
-            end
+        if(wr_en) begin // write mode
+            instruction_mem[addr] <= accumulator_out;
+        end
+        else begin // read mode
+            memory_data  <= instruction_mem[addr];
         end
     end
 endmodule

@@ -26,7 +26,7 @@ module cpurisc_instruction_register(
     input wire reset,
     input wire load_ir,
     output reg [2:0] opcode,
-    output reg [4:0] operand_address
+    output reg [4:0] operand_addr
     );
     
     reg [2:0] reg_opcode;
@@ -39,7 +39,7 @@ module cpurisc_instruction_register(
          end
          else begin
             reg_opcode <= opcode;
-            reg_operand_address <= operand_address;
+            reg_operand_address <= operand_addr;
          end
     end
     
@@ -47,11 +47,11 @@ module cpurisc_instruction_register(
     always @(posedge clk) begin
         if(reset) begin
             opcode <= 3'b000;
-            operand_address <= 5'b00000;
+            operand_addr <= 5'b00000;
         end
         else begin
             opcode <= reg_opcode;
-            operand_address <= reg_operand_address;          
+            operand_addr <= reg_operand_address;          
         end
     end
 endmodule

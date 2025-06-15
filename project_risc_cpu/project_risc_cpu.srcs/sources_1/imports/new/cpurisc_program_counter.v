@@ -30,29 +30,16 @@ module cpurisc_program_counter(
     input wire pc_enable,
     output reg [4:0] PC_out
     );
-    reg [4:0] reg_counter = 5'b00000;
+    wire [4:0] pc_jump;
+    assign pc_jump = (JUMP) ? PC_jump_addr : (SKZ && is_zero) ? is_zero + 2 : (pc_enable) ? PC_out + 1: PC_out;// Determine the next address based on JUMP and SKZ signals
 
-    
-    always @(*) begin
-        if(pc_enable) begin
-            if(SKZ == 1 && is_zero == 1)
-                reg_counter <= PC_out + 5'b00010; // skipping the next instruction 
-             else if(JUMP == 1)
-                reg_counter <= PC_jump_addr; // jumping to the specific instruction
-             else
-                reg_counter <= PC_out + 5'b00001; // normal mode
-                
+    always @(posedge clk or posedge reset) begin
+        if(reset) begin
+            PC_out <= 5'b00000;         // Reset the program counter to 0
+        end else if (pc_enable) begin
+        $monitor("runnning %b",pc_jump);
+           PC_out <= pc_jump;         // Update the program counter if inc_pc is high
         end
-        else 
-            reg_counter <= PC_out;
-    end
-    
-    
-    always @(posedge clk) begin 
-    if(reset)
-        PC_out <= 5'b00000;
-    else if(pc_enable)
-        PC_out <= reg_counter;
     end
     
 endmodule
