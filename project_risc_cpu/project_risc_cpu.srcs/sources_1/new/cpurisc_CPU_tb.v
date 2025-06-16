@@ -70,6 +70,11 @@ module cpurisc_CPU_tb;
         .acc_enable(acc_enable),
         .state(state)
     ); 
+    
+    initial begin
+    
+    end
+    
     initial begin
         clk = 0;
         forever #1 clk = ~clk; // Clock with 10ns period

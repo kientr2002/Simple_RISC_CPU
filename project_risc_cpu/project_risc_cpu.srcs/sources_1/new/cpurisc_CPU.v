@@ -72,7 +72,7 @@ module cpurisc_CPU(
         .is_zero(is_zero),
         .SKZ(SKZ),                     // Tín hiệu SKZ từ Controller
         .JUMP(JUMP),                    // Đổi tên để đồng bộ
-        .PC_jump_addr(PC_jump_addr),   // Địa chỉ nhảy từ Instruction Register
+        .PC_jump_addr(operand_address_out),   // Địa chỉ nhảy từ Instruction Register
         .PC_out(PC_out)
     );
 

@@ -37,7 +37,6 @@ module cpurisc_program_counter(
         if(reset) begin
             PC_out <= 5'b00000;         // Reset the program counter to 0
         end else if (pc_enable) begin
-        $monitor("runnning %b",pc_jump);
            PC_out <= pc_jump;         // Update the program counter if inc_pc is high
         end
     end
