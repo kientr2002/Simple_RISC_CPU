@@ -163,8 +163,8 @@ module cpurisc_controller(
                     wr_en <= 0;
                     JUMP <= (opcode == 3'b111); 
                     imem_enable <= 0;
-                    alu_enable <= (opcode == 3'b010 || opcode == 3'b011 || opcode == 3'b100 || 3'b101);
-                    acc_enable <= (opcode == 3'b010 || opcode == 3'b011 || opcode == 3'b100 || 3'b101);
+                    alu_enable <= (opcode == 3'b010 || opcode == 3'b011 || opcode == 3'b100 || opcode == 3'b101);
+                    acc_enable <= (opcode == 3'b010 || opcode == 3'b011 || opcode == 3'b100 || opcode == 3'b101);
                     state <= OPCODE_MEMORYANDPC;                
                 end 
                 OPCODE_MEMORYANDPC: begin
@@ -176,17 +176,17 @@ module cpurisc_controller(
                     JUMP <= (opcode == 3'b111); 
                     imem_enable <= 0;
                     alu_enable <= 0;
-                    acc_enable <= (opcode == 3'b010 || opcode == 3'b011 || opcode == 3'b100 || 3'b101);
+                    acc_enable <= (opcode == 3'b010 || opcode == 3'b011 || opcode == 3'b100 || opcode == 3'b101);
                     state <= PC_PROCESSING;                                
                 end 
                 PC_PROCESSING: begin
                     pc_enable <= (opcode == 3'b010 || opcode == 3'b011 || opcode == 3'b100 || opcode == 3'b101|| opcode == 3'b110);
                     mux_select <= 1;
-                    load_ir <= 1;
+                    load_ir <= 0;
                     SKZ <= 0;
                     wr_en <= 0;
                     JUMP <= 0; 
-                    imem_enable <= 1;
+                    imem_enable <= 0;
                     alu_enable <= 0;
                     acc_enable <= 0;
                     state <= SELECT_INST_ADDR;                   
